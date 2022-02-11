@@ -1,3 +1,4 @@
+<?
 function set_query_typeahead($q, $fields=array(),$separator=" ") {
     $q_explode = explode($separator,$q);
     $i = 0;
@@ -24,3 +25,4 @@ function neste_replace_mysql($field,$arr_char_to_replace=array(''),$arr_replace_
     }
     return $return;
 }
+?>

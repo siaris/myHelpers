@@ -29,6 +29,19 @@ walk(s){
     return 
 }
 
+DoCal(c){
+    switch(c){
+        case '+': 
+            if(stackSolution.length >= 2) stackSolution.push(stackSolution[stackSolution.length-1] + stackSolution[stackSolution.length-2]) else return false    
+            break
+        default: 
+            if(stackSolution.length >= 1)
+                
+            else return false 
+            break
+    }
+}
+
 in_array (needle, haystack) {
 	var key = ''
     for (key in haystack) {

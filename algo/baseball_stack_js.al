@@ -1,13 +1,12 @@
 <script>
     var walkBaseballStack = function (){
     var stackSolution = []
-    var intRange = Array.from({length: (2*(3*104)) + 1}, (_, i) => i - (3*104))
     
     function init(arr){
         stackSolution = []
         if(clean(arr)) outputStatus = walk(arr)
         if(stackSolution.length > 0) return stackSolution.reduce((a, b) => a + b, 0)
-        else return null
+        else return false
     }
 
     function clean(s){
@@ -25,10 +24,11 @@
                 //must at least one elem
                     if (DoCalc(s[i]) === false) return false
                 break
-                case inArray(s[i],intRange):
-                    stackSolution.push(parseInt(s[i]))
+                case  isNaN(s[i]): return false
                 break
-                default: return false
+                default: 
+                    if(parseInt(s[i]) >= (-3*104) && parseInt(s[i]) <= (3*104)) stackSolution.push(parseInt(s[i]))
+                    else return false
                 break
             }
         } 
@@ -50,19 +50,9 @@
         return true
     }
 
-    function inArray (needle, haystack) {
-        var key = ''
-        for (key in haystack) {
-            if (haystack[key] == needle) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     return {
         init: init
     }
 }()
-console.info(walkBaseballStack.init(["9","-4"]))
+console.info(walkBaseballStack.init(["D","2"]))
 </script>
